@@ -1,0 +1,20 @@
+
+{
+  "name": "orderalert-clone-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter \"./apps/*\" build",
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "start:api": "pnpm --filter api start",
+    "start:worker": "pnpm --filter worker start",
+    "db:generate": "pnpm --filter @orderalert-clone/db generate",
+    "db:migrate": "pnpm --filter @orderalert-clone/db migrate",
+    "db:seed": "pnpm --filter @orderalert-clone/db seed",
+    "postinstall": "pnpm db:generate"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@8.15.1"
+}

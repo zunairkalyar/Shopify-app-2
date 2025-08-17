@@ -1,0 +1,5 @@
+{
+  "name": "OrderAlert Clone Admin",
+  "description": "An admin dashboard to manage Shopify order notifications via WhatsApp. It allows users to manage templates, settings, view messages, and track orders.",
+  "requestFramePermissions": []
+}

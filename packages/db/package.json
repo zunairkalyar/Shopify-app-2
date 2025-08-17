@@ -1,0 +1,29 @@
+
+{
+  "name": "@orderalert-clone/db",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "exports": {
+    ".": "./node_modules/.prisma/client/index.js"
+  }
+}

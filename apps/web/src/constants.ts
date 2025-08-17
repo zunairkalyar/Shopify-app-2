@@ -1,0 +1,10 @@
+
+import { HomeIcon, ShoppingCartIcon, MessageSquareIcon, FileTextIcon, SettingsIcon } from './components/icons/IconComponents';
+
+export const NAV_LINKS = [
+  { name: 'Dashboard', href: '/', icon: HomeIcon },
+  { name: 'Orders', href: '/orders', icon: ShoppingCartIcon },
+  { name: 'Messages', href: '/messages', icon: MessageSquareIcon },
+  { name: 'Templates', href: '/templates', icon: FileTextIcon },
+  { name: 'Settings', href: '/settings', icon: SettingsIcon },
+];
