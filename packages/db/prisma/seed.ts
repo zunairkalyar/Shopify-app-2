@@ -1,6 +1,8 @@
 /// <reference types="node" />
 
-import { PrismaClient } from '@prisma/client';
+import { exit } from 'process';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
@@ -79,7 +81,7 @@ async function main() {
 main()
   .catch((e) => {
     console.error(e);
-    process.exit(1);
+    exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();

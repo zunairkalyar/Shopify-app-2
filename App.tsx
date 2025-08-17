@@ -7,6 +7,7 @@ import Orders from './pages/Orders';
 import Messages from './pages/Messages';
 import Templates from './pages/Templates';
 import Settings from './pages/Settings';
+import ConnectStore from './pages/ConnectStore';
 
 function App(): React.ReactNode {
   return (
@@ -18,6 +19,7 @@ function App(): React.ReactNode {
           <Route path="messages" element={<Messages />} />
           <Route path="templates" element={<Templates />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="connect-store" element={<ConnectStore />} />
         </Route>
       </Routes>
     </HashRouter>

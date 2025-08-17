@@ -7,6 +7,8 @@ import Orders from './pages/Orders';
 import Messages from './pages/Messages';
 import Templates from './pages/Templates';
 import Settings from './pages/Settings';
+import ConnectStore from './pages/ConnectStore';
+import Webhooks from './pages/Webhooks';
 
 function App(): React.ReactNode {
   return (
@@ -16,8 +18,10 @@ function App(): React.ReactNode {
           <Route index element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
           <Route path="messages" element={<Messages />} />
+          <Route path="webhooks" element={<Webhooks />} />
           <Route path="templates" element={<Templates />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="connect-store" element={<ConnectStore />} />
         </Route>
       </Routes>
     </HashRouter>

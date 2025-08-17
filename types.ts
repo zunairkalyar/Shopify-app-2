@@ -63,3 +63,16 @@ export interface DashboardStats {
   revenueGenerated: number;
   chartData: { name: string; sent: number; failed: number }[];
 }
+
+export interface StoreConnection {
+  domain: string;
+  status: 'connected' | 'disconnected';
+  connectedAt?: string;
+}
+
+export interface StoreLog {
+  id: string;
+  level: 'info' | 'warn' | 'error';
+  message: string;
+  createdAt: string;
+}

@@ -1,5 +1,5 @@
 
-import { HomeIcon, ShoppingCartIcon, MessageSquareIcon, FileTextIcon, SettingsIcon } from './components/icons/IconComponents';
+import { HomeIcon, ShoppingCartIcon, MessageSquareIcon, FileTextIcon, SettingsIcon, StoreIcon } from './components/icons/IconComponents';
 
 export const NAV_LINKS = [
   { name: 'Dashboard', href: '/', icon: HomeIcon },
@@ -7,4 +7,5 @@ export const NAV_LINKS = [
   { name: 'Messages', href: '/messages', icon: MessageSquareIcon },
   { name: 'Templates', href: '/templates', icon: FileTextIcon },
   { name: 'Settings', href: '/settings', icon: SettingsIcon },
+  { name: 'Connect Store', href: '/connect-store', icon: StoreIcon },
 ];

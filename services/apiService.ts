@@ -1,5 +1,5 @@
 
-import { Order, Message, Template, Settings, WaStatus, MessageStatus, DashboardStats, TopTemplate } from '../types';
+import { Order, Message, Template, Settings, WaStatus, MessageStatus, DashboardStats, TopTemplate, StoreConnection, StoreLog } from '../types';
 
 const mockOrders: Order[] = [
   { id: 'ord_1', orderNumber: 1027, customerName: 'Ayesha Khan', customerPhone: '+923001234567', financialStatus: 'cod', fulfillmentStatus: 'unfulfilled', total: 2899.00, currency: 'PKR', createdAt: '2023-10-27T10:00:00Z' },
@@ -34,6 +34,19 @@ let mockSettings: Settings = {
 };
 
 let mockWaStatus: WaStatus = 'ready';
+
+let mockStoreConnection: StoreConnection = {
+  domain: '',
+  status: 'disconnected',
+};
+
+const mockLogs: StoreLog[] = [
+    { id: 'log_1', level: 'info', message: 'Store connection successful for your-store.myshopify.com.', createdAt: '2023-10-29T10:05:00Z' },
+    { id: 'log_2', level: 'info', message: 'Webhook received: orders/create (ID: wh_abc123)', createdAt: '2023-10-29T10:15:22Z' },
+    { id: 'log_3', level: 'info', message: 'Webhook received: orders/create (ID: wh_def456)', createdAt: '2023-10-29T10:18:45Z' },
+    { id: 'log_4', level: 'error', message: 'Failed to validate webhook signature for ID: wh_ghi789.', createdAt: '2023-10-29T10:20:10Z' },
+    { id: 'log_5', level: 'info', message: 'Webhook received: fulfillments/create (ID: wh_jkl012)', createdAt: '2023-10-29T11:01:00Z' },
+];
 
 // --- API Functions ---
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
@@ -131,4 +144,36 @@ export const getTopTemplates = async (): Promise<TopTemplate[]> => {
         .map(([key, count]) => ({ key, count }))
         .sort((a, b) => b.count - a.count)
         .slice(0, 3);
+};
+
+export const getStoreConnection = async (): Promise<StoreConnection> => {
+    await delay(300);
+    return mockStoreConnection;
+};
+
+export const connectStore = async (domain: string): Promise<StoreConnection> => {
+    await delay(1500);
+    if (!domain.endsWith('.myshopify.com')) {
+        throw new Error('Invalid Shopify domain.');
+    }
+    mockStoreConnection = {
+        domain,
+        status: 'connected',
+        connectedAt: new Date().toISOString(),
+    };
+    return mockStoreConnection;
+};
+
+export const disconnectStore = async (): Promise<StoreConnection> => {
+    await delay(500);
+    mockStoreConnection = {
+        domain: '',
+        status: 'disconnected',
+    };
+    return mockStoreConnection;
+};
+
+export const getStoreLogs = async (): Promise<StoreLog[]> => {
+    await delay(650);
+    return [...mockLogs].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 };

@@ -5,6 +5,7 @@ import rawBody from '@fastify/raw-body';
 import { env } from '@orderalert-clone/config';
 import { webhookRoutes } from './routes/webhooks';
 import { waRoutes } from './routes/wa';
+import { exit } from 'process';
 
 const server = Fastify({
   logger: {
@@ -32,7 +33,7 @@ async function main() {
     server.log.info(`API server listening at http://localhost:${env.PORT}`);
   } catch (err) {
     server.log.error(err);
-    process.exit(1);
+    exit(1);
   }
 }
 

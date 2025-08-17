@@ -3,9 +3,10 @@
 import { z } from 'zod';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
+import { cwd } from 'process';
 
 // Load .env file from the root of the monorepo
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+dotenv.config({ path: path.resolve(cwd(), '.env') });
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
